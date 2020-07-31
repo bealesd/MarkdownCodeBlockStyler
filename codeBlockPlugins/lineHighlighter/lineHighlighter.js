@@ -7,7 +7,7 @@ LineHighlighter = function() {
                 this.nodeTypeEnum = { 'text': 3, 'element': 1 };
 
                 const lineParserUrl = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineParser/lineParser.js';
-                this.lineParser = await loadScript(lineParserUrl);
+                this.lineParser = await this.loadScript(lineParserUrl);
 
                 const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineHighlighter.css';
                 this.loadCss(href);
