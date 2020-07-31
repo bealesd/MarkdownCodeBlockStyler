@@ -1,27 +1,24 @@
 LineHighlighter = function() {
     class LineHighlighter {
         constructor() {
-            return (async() => {
-                this.id = 'lineHighlighter';
-                this.position = 'afterLineBreaks';
-                this.nodeTypeEnum = { 'text': 3, 'element': 1 };
 
-                const lineParserUrl = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineParser.js';
-                this.lineParser = await this.loadScriptBrowserIndependent(lineParserUrl);
+            this.id = 'lineHighlighter';
+            this.position = 'afterLineBreaks';
+            this.nodeTypeEnum = { 'text': 3, 'element': 1 };
 
-                const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineHighlighter.css';
-                this.loadCss(href);
-            })();
+            const lineParserUrl = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineParser.js';
+            this.lineParser = this.loadScriptBrowser(lineParserUrl);
+
+            const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineHighlighter.css';
+            this.loadCss(href);
+
         }
 
         loadScriptBrowser(url) {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.type = 'text/javascript'
-                script.onload = () => { resolve(script); };
-                script.src = url;
-                document.querySelector('head').appendChild(script);
-            });
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = url;
+            document.querySelector('head').appendChild(script);
         }
 
         async loadScriptBrowserIndependent(url) {
