@@ -1,0 +1,17 @@
+.example-neutral {
+    border-left: 5px solid #3d7e9a;
+    border-radius: 0px;
+    background-color: #eee !important;
+}
+
+.example-good {
+    border-left: 5px solid #4d9f0c;
+    border-radius: 0px;
+    background-color: #f6faf3 !important;
+}
+
+.example-bad {
+    border-left: 5px solid #e66465;
+    border-radius: 0px;
+    background-color: #fef7f7 !important;
+}

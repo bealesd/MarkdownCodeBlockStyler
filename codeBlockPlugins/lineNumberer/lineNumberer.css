@@ -1,0 +1,38 @@
+pre[class*="language-"].line-numbers {
+    counter-reset: lineNumber;
+    position: relative;
+    padding-left: 3.7em;
+}
+
+pre[class*="language-"].line-numbers>code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: -3.7em;
+    width: 3em;
+    letter-spacing: -1px;
+    border-right: 1px solid gray;
+}
+
+.line-numbers-rows>span {
+    counter-increment: lineNumber;
+    display: block;
+}
+
+.line-numbers-rows>span:before {
+    content: counter(lineNumber);
+    display: block;
+    color: gray;
+    padding-right: 0.9em;
+    text-align: right;
+}
+
+.line-numbers .line-highlight:before,
+.line-numbers .line-highlight:after {
+    content: none;
+}
