@@ -6,30 +6,15 @@ LineHighlighter = function() {
                 this.position = 'afterLineBreaks';
                 this.nodeTypeEnum = { 'text': 3, 'element': 1 };
 
-                const fetchLineParserCode = (await (await fetch('https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineParser.js')).text());
-                console.log(fetchLineParserCode);
-
                 const lineParserUrl = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineParser.js';
-                this.lineParser = await this.loadScript(lineParserUrl);
+                this.lineParser = await this.loadScriptBrowserIndependent(lineParserUrl);
 
                 const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineHighlighter.css';
                 this.loadCss(href);
             })();
         }
 
-        // constructor() {
-        //     this.id = 'lineHighlighter';
-        //     this.position = 'afterLineBreaks';
-        //     this.nodeTypeEnum = { 'text': 3, 'element': 1 };
-
-        //     const lineParserUrl = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineParser/lineParser.js';
-        //     this.lineParser = await loadScript(lineParserUrl);
-
-        //     const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineHighlighter.css';
-        //     this.loadCss(href);
-        // }
-
-        loadScript(url) {
+        loadScriptBrowser(url) {
             return new Promise((resolve, reject) => {
                 const script = document.createElement('script');
                 script.type = 'text/javascript'
@@ -37,6 +22,11 @@ LineHighlighter = function() {
                 script.src = url;
                 document.querySelector('head').appendChild(script);
             });
+        }
+
+        async loadScriptBrowserIndependent(url) {
+            const fetchLineParserCode = (await (await fetch(url)).text());
+            eval(fetchLineParserCode);
         }
 
         loadCss(href) {
