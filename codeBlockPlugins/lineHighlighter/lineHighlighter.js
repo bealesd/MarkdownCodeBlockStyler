@@ -8,7 +8,7 @@ export class LineHighlighter {
 
         this.lineParser = new LineParser();
 
-        const href = './codeBlockPlugins/lineHighlighter/lineHighlighter.css';
+        const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineHighlighter.css';
         this.loadCss(href);
     }
 

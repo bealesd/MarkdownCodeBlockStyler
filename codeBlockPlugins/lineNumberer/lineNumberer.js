@@ -3,7 +3,7 @@ export class LineNumberer {
         this.id = 'lineNumber';
         this.position = 'beforeLineBreaks';
 
-        const href = './codeBlockPlugins/lineNumberer/lineNumberer.css';
+        const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineNumberer/lineNumberer.css';
         this.loadCss(href);
     }
 
