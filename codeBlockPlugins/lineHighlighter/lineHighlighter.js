@@ -6,7 +6,10 @@ LineHighlighter = function() {
                 this.position = 'afterLineBreaks';
                 this.nodeTypeEnum = { 'text': 3, 'element': 1 };
 
-                const lineParserUrl = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineParser/lineParser.js';
+                const fetchLineParserCode = (await (await fetch('https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineParser.js')).text());
+                console.log(fetchLineParserCode);
+
+                const lineParserUrl = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineParser.js';
                 this.lineParser = await this.loadScript(lineParserUrl);
 
                 const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineHighlighter.css';
