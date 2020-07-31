@@ -7,7 +7,7 @@ LineHighlighter = function() {
             this.nodeTypeEnum = { 'text': 3, 'element': 1 };
 
             const lineParserUrl = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineParser.js';
-            this.lineParser = this.loadScriptBrowser(lineParserUrl);
+            this.loadScriptBrowser(lineParserUrl);
 
             const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineHighlighter/lineHighlighter.css';
             this.loadCss(href);
@@ -60,9 +60,9 @@ LineHighlighter = function() {
 
                 let rows = null;
                 if (rawRows !== null) {
-                    let lexemes = this.lineParser.lexer(rawRows);
-                    let groups = this.lineParser.syntaxer(lexemes)
-                    rows = this.lineParser.codeGeneration(groups, rowCount);
+                    let lexemes = LineParser.lexer(rawRows);
+                    let groups = LineParser.syntaxer(lexemes)
+                    rows = LineParser.codeGeneration(groups, rowCount);
                 }
 
                 codeBlockHiglights[`${index}`] = { 'rows': rows };
