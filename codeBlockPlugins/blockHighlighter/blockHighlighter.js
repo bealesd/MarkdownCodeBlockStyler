@@ -6,7 +6,8 @@ BlockHighlighter = function() {
                 this.position = 'afterLineBreaks';
                 this.exampleType = ['example-good', 'example-bad', 'example-neutral'];
 
-                const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/blockHighlighter/blockHighlighter.css';
+                const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/blockHighlighter/blockHighlighter.min.css';
+
                 this.loadCss(href);
 
                 BlockHighlighter.instance = this;

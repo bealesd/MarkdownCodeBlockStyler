@@ -4,7 +4,7 @@ LineNumberer = function() {
             this.id = 'lineNumber';
             this.position = 'beforeLineBreaks';
 
-            const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineNumberer/lineNumberer.css';
+            const href = 'https://cdn.jsdelivr.net/gh/bealesd/MarkdownCodeBlockStyler/codeBlockPlugins/lineNumberer/lineNumberer.min.css';
             this.loadCss(href);
         }
 
