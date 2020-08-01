@@ -20,7 +20,7 @@ MarkdownCodeBlockStyler = function() {
                 this.updateHooks[this.updateHookOrders.beforeLineBreaks] = {};
                 this.updateHooks[this.updateHookOrders.afterLineBreaks] = {};
 
-                this.markedUrl = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+                this.markedUrl = 'https://cdn.jsdelivr.net/gh/markedjs/marked@a9384eea7ae8bea6ef8a95470b315c73fdb3c189/marked.min.js';
 
                 MarkdownCodeBlockStyler.instance = this;
             }
@@ -60,7 +60,7 @@ MarkdownCodeBlockStyler = function() {
 
         async update(rawMarkdown) {
             if (!marked) {
-                await this.loadScript(yhis.markedUrl);
+                await this.loadScript(this.markedUrl);
             }
             const tokens = marked.lexer(rawMarkdown);
             const codeTokens = tokens.filter(token => { return token.type === 'code'; });
